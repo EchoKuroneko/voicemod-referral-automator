@@ -1,5 +1,8 @@
 from selenium.webdriver.common.by import By
 
+# Update this if Voicemod is installed in a different location.
+APP_PATH = r"C:\Program Files\Voicemod V3\Voicemod.exe"
+
 WAIT_TIMEOUT = 30
 APP_LAUNCH_DELAY = 15
 CHROME_VERSION = 150
@@ -15,8 +18,6 @@ CHECKBOX = (By.XPATH, "./input[@type='checkbox']")
 
 OTP_INPUTS = [(By.ID, f"inputBox{i}") for i in range(6)]
 VERIFY_BUTTON = (By.CLASS_NAME, "input-email-code__verify-button")
-
-APP_PATH = r"C:\Program Files\Voicemod V3\Voicemod.exe"
 
 CLAIM = r"assets\claim.png"
 TRY_VOICE = r"assets\try_this_voice.png"

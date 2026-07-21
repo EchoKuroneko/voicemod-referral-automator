@@ -4,6 +4,7 @@ import pygetwindow as gw
 import ctypes
 import pyautogui
 import pyperclip
+from pathlib import Path
 
 from utils.logger import logging
 from config import (
@@ -16,6 +17,18 @@ from config import (
     LOGIN,
 )
 
+def check_voicemod_installation():
+    if Path(APP_PATH).exists():
+        logging.info("Voicemod installation found.")
+        return True
+
+    logging.error(
+        f"Voicemod not found at:\n\t\t\t\t  {APP_PATH}"
+    )
+    logging.error(
+        "Please install Voicemod or update APP_PATH in config.py."
+    )
+    return False
 
 def ensure_app_running():
     """Checks if Voicemod is running; spawns it if it isn't."""

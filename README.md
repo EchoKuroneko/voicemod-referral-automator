@@ -49,6 +49,22 @@ You can find your invite link inside the Voicemod application.
 
 If no `.env` file exists, the script will prompt you for your invite link on first launch and automatically save it.
 
+### Custom Voicemod Installation Path
+
+By default, the script expects Voicemod to be installed at:
+
+```python
+APP_PATH = r"C:\Program Files\Voicemod V3\Voicemod.exe"
+```
+
+If Voicemod is installed elsewhere, update `APP_PATH` in `config.py`.
+
+Example:
+
+```python
+APP_PATH = r"D:\Programs\Voicemod\Voicemod.exe"
+```
+
 ---
 
 ## Usage

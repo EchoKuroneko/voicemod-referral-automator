@@ -7,7 +7,7 @@ from utils.logger import logging
 from mail_tm import create_temp_account, get_otp, delete_temp_account
 from browser import open_browser, close_browser
 from web_login import web_login_flow, submit_otp
-from voicemod import launch_voicemod_app
+from voicemod import launch_voicemod_app, check_voicemod_installation
 
 load_dotenv()
 LOGIN_URL = os.getenv("LOGIN_URL")
@@ -32,6 +32,9 @@ def clean_up(driver, account):
 
 
 def run_cycles(iterations, headless):
+    if not check_voicemod_installation():
+        return
+
     login_url = LOGIN_URL
     driver = None
     try:
