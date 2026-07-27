@@ -17,6 +17,7 @@ def create_temp_account():
 
 def get_latest_message(account):
     messages = account.messages
+    logging.info(f"Found {len(messages)} messages.")
     return messages[0] if messages else None
 
 
@@ -42,9 +43,10 @@ def get_otp(account, timeout=60, poll_interval=5):
         start = time.time()
         while time.time() - start < timeout:
             latest_message = get_latest_message(account)
-            otp = extract_otp(latest_message["subject"])
-            if otp:
-                return otp
+            if latest_message:
+                otp = extract_otp(latest_message["subject"])
+                if otp:
+                    return otp
             time.sleep(poll_interval)
         return None
     except Exception as e:
